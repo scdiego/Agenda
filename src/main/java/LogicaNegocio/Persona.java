@@ -15,14 +15,14 @@ import java.util.Iterator;
 public class Persona extends Contacto{
     private String nombre;
     private String apellido;
-    private String dni;
+    private Integer dni;
 
 /* Constructores */
     
     public Persona() {
     }
 
-    public Persona(String nombre, String apellido, String dni, Integer id, Direccion direccion, Telefono telefono) {
+    public Persona(String nombre, String apellido, Integer dni, Integer id, Direccion direccion, Telefono telefono) {
         super(id, direccion, telefono);
         this.nombre = nombre;
         this.apellido = apellido;
@@ -45,11 +45,11 @@ public class Persona extends Contacto{
         this.apellido = apellido;
     }
 
-    public String getDni() {
+    public Integer getDni() {
         return dni;
     }
 
-    public void setDni(String dni) {
+    public void setDni(Integer dni) {
         this.dni = dni;
     }
     

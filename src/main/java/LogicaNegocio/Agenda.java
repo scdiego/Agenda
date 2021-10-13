@@ -6,6 +6,7 @@
 package LogicaNegocio;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -17,18 +18,29 @@ import java.util.Map;
 public class Agenda {
     private Integer id;
     private String nombre;
-    private Map<String,Persona> personas;
+    private Map<Integer,Persona> personas;
     private Map<String,Empresa> empresas;
+    
+    /* Constructores */
 
     public Agenda() {
     }
 
-    public Agenda(Integer id, String nombre, Map<String, Persona> personas, Map<String, Empresa> empresas) {
+    public Agenda(Integer id, String nombre, Map<Integer, Persona> personas, Map<String, Empresa> empresas) {
         this.id = id;
         this.nombre = nombre;
         this.personas = personas;
         this.empresas = empresas;
     }
+
+    public Agenda(Integer id, String nombre) {
+        this.id = id;
+        this.nombre = nombre;
+        this.empresas = new HashMap();
+        this.personas = new HashMap();
+    }
+    
+    /* Setter y Getter */
 
     public Integer getId() {
         return id;
@@ -46,11 +58,11 @@ public class Agenda {
         this.nombre = nombre;
     }
 
-    public Map<String, Persona> getPersonas() {
+    public Map<Integer, Persona> getPersonas() {
         return personas;
     }
 
-    public void setPersonas(Map<String, Persona> personas) {
+    public void setPersonas(Map<Integer, Persona> personas) {
         this.personas = personas;
     }
 
@@ -63,8 +75,12 @@ public class Agenda {
     }
     
     
-    public boolean noExiste(Persona unaPersona){
-        return !this.personas.containsKey(unaPersona.getDni());
+    public boolean existePersona(Persona unaPersona){
+        return this.personas.containsKey(unaPersona.getDni());
+    }
+    
+    public boolean noExisteEmpresa(Empresa unaEmpresa){
+       return !this.empresas.containsKey(unaEmpresa.getCuit());
     }
     
     /* Retorna una lista de Personas que coinciden con el nombre de parametro */
@@ -130,15 +146,47 @@ public class Agenda {
     }
     
     
+    /* Agrego contacto empresa a la agenda*/
+    
+    public void agregarEmpresa(Empresa unaEmpresa) throws Exception{
+        if(this.noExisteEmpresa(unaEmpresa)){
+            this.empresas.put(unaEmpresa.getCuit(), unaEmpresa);
+        }else{
+             throw new Exception("La empresa que intenta cargar se ha ingresado previamente en la agenda");
+        }
+            
+    }
+    
     /* Se agrega un contacto a una empresa */
     public void agregarContactoEmpresa(Persona unaPersona, Empresa unaEmpresa) throws Exception{
-        if(this.noExiste(unaPersona)){
+        if(this.existePersona(unaPersona)){
             unaEmpresa.agregarContacto(unaPersona);
         }else{
             throw new Exception("La persona que intenta agregar no esta cargada previamente en la agenda");
         }
     }
     
+    
+    /* Se agrega un contacto a la agenda*/
+    public void agregarContacto(Persona unaPersona){
+        this.personas.put(unaPersona.getDni(), unaPersona);
+    }
+    
+    public int cuantosContactosPersonasTengo(){
+        return this.personas.size();
+    }
+    
+    public int cuantosContactosEmpresaTengo(){
+        return this.empresas.size();
+    }
+            
+    
+    
+    
+    @Override
+    public String toString(){
+        return this.getNombre();
+    }
     
     
 }

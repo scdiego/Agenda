@@ -5,7 +5,8 @@
  */
 package LogicaNegocio;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -14,17 +15,29 @@ import java.util.List;
 public class Empresa extends Contacto{
     private String razonSocial;
     private String cuit;
-    private List<Persona> personas;
+    private Map<Integer,Persona> contactosEmpresa;
+    
+    /* Constructores */
 
     public Empresa() {
     }
 
-    public Empresa(String razonSocial, String cuit, List<Persona> personas, Integer id, Direccion direccion, Telefono telefono) {
+    public Empresa(String razonSocial, String cuit, Map<Integer, Persona> personas, Integer id, Direccion direccion, Telefono telefono) {
         super(id, direccion, telefono);
         this.razonSocial = razonSocial;
         this.cuit = cuit;
-        this.personas = personas;
+        this.contactosEmpresa = personas;
     }
+
+    public Empresa(String razonSocial, String cuit, Integer id, Direccion direccion, Telefono telefono) {
+        super(id, direccion, telefono);
+        this.razonSocial = razonSocial;
+        this.cuit = cuit;
+        this.contactosEmpresa = new HashMap();
+    }
+    
+    
+    /* Setter and Getter */
 
     public String getRazonSocial() {
         return razonSocial;
@@ -42,16 +55,22 @@ public class Empresa extends Contacto{
         this.cuit = cuit;
     }
 
-    public List<Persona> getPersonas() {
-        return personas;
+    public Map<Integer, Persona> getcontactosEmpresa() {
+        return contactosEmpresa;
     }
 
-    public void setPersonas(List<Persona> personas) {
-        this.personas = personas;
+    public void setcontactosEmpresa(Map<Integer, Persona> personas) {
+        this.contactosEmpresa = personas;
     }
     
+    /* Metodos */
+    
+    
+    
+    
     public void agregarContacto(Persona unaPersona){
-        this.personas.add(unaPersona);
+        //this.personas.add(unaPersona);
+        this.contactosEmpresa.put(unaPersona.getDni(), unaPersona);
     }
     
     
