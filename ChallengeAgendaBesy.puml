@@ -1,0 +1,30 @@
+@startuml
+abstract class LogicaNegocio.Contacto
+annotation java.lang.Override
+class LogicaNegocio.Agenda
+class LogicaNegocio.Direccion
+class LogicaNegocio.Empresa
+class LogicaNegocio.Persona
+class LogicaNegocio.Telefono
+class java.util.ArrayList
+class java.util.HashMap
+class java.util.Iterator
+class java.util.List
+class java.util.Map
+LogicaNegocio.Agenda ..> java.lang.Override
+LogicaNegocio.Agenda ..> java.util.ArrayList
+LogicaNegocio.Agenda ..> java.util.HashMap
+LogicaNegocio.Agenda ..> java.util.Iterator
+LogicaNegocio.Agenda ..> java.util.List
+LogicaNegocio.Agenda ..> java.util.Map
+LogicaNegocio.Direccion ..> java.lang.Override
+LogicaNegocio.Empresa --|> LogicaNegocio.Contacto
+LogicaNegocio.Empresa ..> java.lang.Override
+LogicaNegocio.Empresa ..> java.util.HashMap
+LogicaNegocio.Empresa ..> java.util.Map
+LogicaNegocio.Persona --|> LogicaNegocio.Contacto
+LogicaNegocio.Persona ..> java.lang.Override
+LogicaNegocio.Persona ..> java.util.ArrayList
+LogicaNegocio.Persona ..> java.util.Iterator
+LogicaNegocio.Telefono ..> java.lang.Override
+@enduml

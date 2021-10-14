@@ -10,17 +10,27 @@ package LogicaNegocio;
  * @author diego
  */
 public class Telefono {
+    private Integer id;
     private String tipo;
     private String nro;
 
     public Telefono() {
     }
 
-    public Telefono(String tipo, String nro) {
+    public Telefono(Integer id, String tipo, String nro) {
+        this.id = id;
         this.tipo = tipo;
         this.nro = nro;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    
     public String getTipo() {
         return tipo;
     }

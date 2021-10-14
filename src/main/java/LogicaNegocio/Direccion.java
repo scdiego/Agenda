@@ -10,6 +10,7 @@ package LogicaNegocio;
  * @author diego
  */
 public class Direccion {
+    private Integer id;
     private String calle;
     private String nro;
     private String provincia;
@@ -18,13 +19,22 @@ public class Direccion {
     public Direccion() {
     }
 
-    public Direccion(String calle, String nro, String provincia, String localidad) {
+    public Direccion(Integer id, String calle, String nro, String provincia, String localidad) {
+        this.id = id;
         this.calle = calle;
         this.nro = nro;
         this.provincia = provincia;
         this.localidad = localidad;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+  
     public String getCalle() {
         return calle;
     }

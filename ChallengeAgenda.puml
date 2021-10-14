@@ -1,0 +1,13 @@
+@startuml
+abstract class LogicaNegocio.Contacto
+class LogicaNegocio.Agenda
+class LogicaNegocio.Direccion
+class LogicaNegocio.Empresa
+class LogicaNegocio.Persona
+class LogicaNegocio.Telefono
+class java.util.ArrayList
+class java.util.HashMap
+class java.util.Iterator
+class java.util.List
+class java.util.Map
+@enduml

@@ -23,8 +23,8 @@ public class MainClass {
         Agenda unaAgenda = new Agenda(1,"Mi agenda de contactos");
         
         
-        Direccion unaDireccion = new Direccion("Calle falsa", "123", "Posadas", "Misiones");
-        Telefono unTelefono = new Telefono("Cel", "2541587");
+        Direccion unaDireccion = new Direccion(1, "Calle falsa", "123", "Posadas", "Misiones");
+        Telefono unTelefono = new Telefono(1, "Cel", "2541587");
         
         Persona unaPersona = new Persona("Juan", "Perez", 12548722, 1, unaDireccion, unTelefono);
         Empresa unaEmpresa = new Empresa("Empresa Falsa", "1-2543587-3", 2, unaDireccion, unTelefono);
